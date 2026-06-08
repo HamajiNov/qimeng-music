@@ -1,0 +1,16 @@
+Pod::Spec.new do |s|
+  s.name             = 'QXMusicStore'
+  s.version          = '0.0.1'
+  s.summary          = '启蒙乐谱 — 数据持久化层'
+  s.description      = '实现 QXStorageProtocol，提供乐谱本地缓存管理、API 客户端。'
+  s.homepage         = 'https://github.com/HamajiNov/qimeng-music'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'LX' => 'lx@mail.com' }
+  s.source           = { :git => 'https://github.com/HamajiNov/qimeng-music.git', :tag => s.version.to_s }
+  s.ios.deployment_target = '18.0'
+  s.swift_versions = ['5.0']
+  s.source_files = 'QXMusicStore/Classes/**/*'
+  s.dependency 'LXProtocol'
+  s.dependency 'LXAnnotation'
+  s.dependency 'QXMusicInterface'
+end

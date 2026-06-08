@@ -9,17 +9,22 @@
 
 ## 架构与模块
 
-### iOS 端
+### iOS 端（LX 六层组件化架构）
 - 页面结构：
-  - Tab 1: ScoreLibraryView（乐谱库列表）
-  - Tab 2: ScanView（拍照/相册选图 → 上传识别）
-  - Tab 3: ProfileView（设置/存储管理）
-  - ScoreDetailView（全屏：乐谱展示 + 播放控制 + 歌词）
-- 核心模块：
-  - alphaTab WKWebView（乐谱渲染）
-  - KTVLyricsPlayer（AVPlayer + LRC 同步）
-  - NetworkLayer（URLSession + async/await）
-  - LocalCacheManager（FileManager 文件管理）
+  - Tab 1: QXLibraryPage（乐谱库列表）
+  - Tab 2: QXScanPage（拍照/相册选图 → 上传识别）
+  - Tab 3: QXProfilePage（设置/存储管理）
+  - QXScoreDetailPage（全屏：乐谱展示 + 播放控制 + 歌词）
+- 组件层级（每层独立 CocoaPod）：
+  - QXMusicInterface — 纯协议定义层（QXScoreProtocol/QXPlayerProtocol/QXScanProtocol/QXStorageProtocol）
+  - QXMusicStore — 数据持久化（实现 QXStorageProtocol + API 客户端）
+  - QXScoreKit — 乐谱渲染（alphaTab WKWebView，实现 QXScoreProtocol）
+  - QXPlayerKit — KTV 播放器（AVPlayer + LRC，实现 QXPlayerProtocol）
+  - QXScanKit — 拍照扫描（相机+上传，实现 QXScanProtocol）
+  - QXMusicApp — 主工程（页面+组装，依赖所有模块）
+- 跨模块通信：LXAnnotation 服务注册中心，禁止直接 import 业务 Pod
+- 启动机制：LXProtocol 运行时 objc_copyClassList 自动发现 + 按优先级加载
+- 引入 LX 基础组件：LXProtocol / LXAnnotation / LXFoundation / LXHTTPAPI / LXStore
 
 ### 服务端
 - 分层：Router → Service → Worker
