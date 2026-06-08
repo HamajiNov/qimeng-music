@@ -1,0 +1,22 @@
+# Web Framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.19
+
+# Task Queue
+celery[redis]==5.4.0
+redis==5.2.1
+
+# Database
+sqlalchemy==2.0.36
+alembic==1.14.0
+
+# Music Processing
+music21==9.3.0
+
+# Image Processing
+Pillow==11.1.0
+
+# Utilities
+python-dotenv==1.0.1
+aiofiles==24.1.0
