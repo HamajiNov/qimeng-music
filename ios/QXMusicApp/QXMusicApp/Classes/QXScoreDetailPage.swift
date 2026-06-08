@@ -1,134 +1,114 @@
 //
-//  QXScoreDetailPage.swift
+//  QXScoreDetailViewController.swift
 //  QXMusicApp
 //
 
-import SwiftUI
+import UIKit
 import LXAnnotation
 import QXMusicInterface
-import QXMusicStore    // QXScoreLibraryManager 文件路径
-import QXScoreKit    // QXSheetMusicView / QXSheetMusicRenderer 具体类型
+import QXMusicStore
+import QXScoreKit
+import QXPlayerKit
 
-struct QXScoreDetailPage: View {
-    let score: QXScoreItem
-    @Environment(\.dismiss) private var dismiss
-    @State private var player: QXPlayerProtocol?
-    @State private var renderer: QXSheetMusicRenderer?
-    @State private var refreshToggle = false
+/// 乐谱详情页：WKWebView 乐谱 + KTV 歌词 + 播放控制
+final class QXScoreDetailViewController: UIViewController {
 
-    var body: some View {
-        VStack(spacing: 0) {
-            if let p = player, let r = renderer {
-                if p.isLoading {
-                    Spacer()
-                    ProgressView("加载乐谱...")
-                    Spacer()
-                } else {
-                    // 乐谱展示
-                    QXSheetMusicView(renderer: r).frame(maxHeight: .infinity)
-                    Divider()
-                    // KTV 歌词
-                    QXKTVLyricsView(lyrics: p.lyrics, currentIndex: p.currentLyricIndex)
-                        .frame(height: 180)
-                    Divider()
-                    // 播放控制
-                    QXPlaybackBar(player: p)
-                }
-            } else {
-                Spacer()
-                ProgressView("正在初始化...")
-                Spacer()
-            }
-        }
-        .navigationTitle(score.title)
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear { setup() }
-        .onDisappear { player?.stop() }
-        .id(refreshToggle)
+    private let score: QXScoreItem
+    private var player: QXPlayerProtocol?
+    private var renderer: QXSheetMusicRenderer?
+    private var sheetView: QXSheetMusicView?
+    private var lyricsView: QXKTVLyricsView?
+    private var playbackBar: QXPlaybackBar?
+    private var refreshTimer: Timer?
+
+    init(score: QXScoreItem) {
+        self.score = score
+        super.init(nibName: nil, bundle: nil)
     }
 
-    private func setup() {
-        let p = (LXAnnotation.getInstance(
-            forProtocolType: QXPlayerProtocol.self) as? QXPlayerProtocol)!
-        let r = (LXAnnotation.getInstance(
-            forProtocolType: QXScoreProtocol.self) as? QXSheetMusicRenderer)!
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        p.onStateChanged = { refreshToggle.toggle() }
-        self.player = p
-        self.renderer = r
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = score.title
+        view.backgroundColor = .systemBackground
+        setupModules()
+        setupLayout()
+        startLoading()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        refreshTimer?.invalidate()
+        player?.stop()
+    }
+
+    // MARK: - Setup
+
+    private func setupModules() {
+        player = LXAnnotation.getInstance(
+            forProtocolType: QXPlayerProtocol.self) as? QXPlayerProtocol
+        renderer = LXAnnotation.getInstance(
+            forProtocolType: QXScoreProtocol.self) as? QXSheetMusicRenderer
+
+        player?.onStateChanged = { [weak self] in
+            DispatchQueue.main.async { self?.refreshUI() }
+        }
+    }
+
+    private func setupLayout() {
+        guard let renderer, let player else { return }
+
+        let sheetV = QXSheetMusicView(renderer: renderer)
+        let lyricsV = QXKTVLyricsView()
+        let bar = QXPlaybackBar()
+        bar.player = player
+
+        [sheetV, lyricsV, bar].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+
+        NSLayoutConstraint.activate([
+            sheetV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            sheetV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            sheetV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            sheetV.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
+
+            lyricsV.topAnchor.constraint(equalTo: sheetV.bottomAnchor, constant: 4),
+            lyricsV.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            lyricsV.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            lyricsV.heightAnchor.constraint(equalToConstant: 180),
+
+            bar.topAnchor.constraint(equalTo: lyricsV.bottomAnchor, constant: 4),
+            bar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+
+        self.sheetView = sheetV
+        self.lyricsView = lyricsV
+        self.playbackBar = bar
+    }
+
+    private func startLoading() {
+        guard let renderer, let player else { return }
+        let musicxmlURL = QXScoreLibraryManager.shared.scoresDirectory
+            .appendingPathComponent(score.id).appendingPathComponent("score.musicxml")
+        renderer.loadMusicXML(url: musicxmlURL)
 
         Task {
-            // 加载乐谱渲染
-            let musicxmlURL = QXScoreLibraryManager.shared.scoresDirectory
-                .appendingPathComponent(score.id).appendingPathComponent("score.musicxml")
-            r.loadMusicXML(url: musicxmlURL)
-            // 加载播放器
-            await p.load(score: score)
-        }
-    }
-}
-
-// MARK: - KTV Lyrics
-
-struct QXKTVLyricsView: View {
-    let lyrics: [QXLRCLine]
-    let currentIndex: Int
-
-    var body: some View {
-        if lyrics.isEmpty {
-            VStack { Image(systemName: "text.alignleft").foregroundColor(.secondary); Text("无歌词").font(.caption).foregroundColor(.secondary) }
-        } else {
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: 12) {
-                        Color.clear.frame(height: 60)
-                        ForEach(Array(lyrics.enumerated()), id: \.offset) { i, line in
-                            Text(line.text)
-                                .font(i == currentIndex ? .title3.weight(.bold) : .body)
-                                .foregroundColor(i == currentIndex ? .primary : .secondary.opacity(0.5))
-                                .scaleEffect(i == currentIndex ? 1.1 : 0.95)
-                                .animation(.easeInOut(duration: 0.3), value: currentIndex)
-                                .id(i)
-                        }
-                        Color.clear.frame(height: 100)
-                    }.padding(.horizontal, 32)
-                }
-                .onChange(of: currentIndex) { _, new in
-                    withAnimation(.easeInOut(duration: 0.3)) { proxy.scrollTo(new, anchor: .center) }
-                }
+            await player.load(score: score)
+            DispatchQueue.main.async { [weak self] in
+                self?.lyricsView?.lyrics = player.lyrics
             }
         }
     }
-}
 
-// MARK: - Playback Bar
-
-struct QXPlaybackBar: View {
-    let player: QXPlayerProtocol
-    @State private var tick = 0
-
-    var body: some View {
-        VStack(spacing: 8) {
-            HStack {
-                Text(format(player.currentTime)).font(.caption.monospacedDigit()).foregroundColor(.secondary)
-                Slider(value: Binding(get: { player.currentTime },
-                    set: { player.seek(to: $0) }), in: 0...max(player.duration, 0.1))
-                Text(format(player.duration)).font(.caption.monospacedDigit()).foregroundColor(.secondary)
-            }.padding(.horizontal)
-            HStack(spacing: 40) {
-                Button { player.skipBackward(10) } label: {
-                    Image(systemName: "gobackward.10").font(.title2) }.buttonStyle(.plain)
-                Button { player.togglePlayPause() } label: {
-                    Image(systemName: player.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .font(.system(size: 48)) }.buttonStyle(.plain)
-                Button { player.skipForward(10) } label: {
-                    Image(systemName: "goforward.10").font(.title2) }.buttonStyle(.plain)
-            }
-        }.padding(.horizontal, 16).padding(.vertical, 10).background(.regularMaterial)
-    }
-
-    private func format(_ t: TimeInterval) -> String {
-        let m = Int(t) / 60, s = Int(t) % 60
-        return String(format: "%02d:%02d", m, s)
+    private func refreshUI() {
+        guard let player else { return }
+        lyricsView?.currentIndex = player.currentLyricIndex
     }
 }

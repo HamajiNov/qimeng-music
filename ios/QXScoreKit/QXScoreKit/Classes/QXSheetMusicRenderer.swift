@@ -3,7 +3,7 @@
 //  QXScoreKit
 //
 
-import SwiftUI
+import UIKit
 import WebKit
 import LXProtocol
 import LXAnnotation
@@ -15,19 +15,6 @@ public final class QXSheetMusicRenderer: NSObject, QXScoreProtocol {
     public var onPlaybackTimeChanged: ((TimeInterval) -> Void)?
     public var currentTime: TimeInterval = 0
 
-    public func makeWebView() -> WKWebView {
-        let config = WKWebViewConfiguration()
-        let wv = WKWebView(frame: .zero, configuration: config)
-        wv.isOpaque = false
-        wv.backgroundColor = .clear
-        #if os(iOS)
-        wv.scrollView.minimumZoomScale = 0.5
-        wv.scrollView.maximumZoomScale = 3.0
-        #endif
-        self.webView = wv
-        return wv
-    }
-
     public func loadMusicXML(url: URL) {
         let xml = (try? String(contentsOf: url, encoding: .utf8)) ?? ""
         let html = buildHTML(musicxml: xml)
@@ -36,10 +23,24 @@ public final class QXSheetMusicRenderer: NSObject, QXScoreProtocol {
 
     public func seekTo(seconds: TimeInterval) {
         currentTime = seconds
-        // JS bridge: alphaTab seek
         let js = "if(window.api) window.api.playbackController?.seekTo(\(seconds * 1000), false)"
         webView?.evaluateJavaScript(js)
     }
+
+    // MARK: - WebView Factory
+
+    public func makeWebView() -> WKWebView {
+        let config = WKWebViewConfiguration()
+        let wv = WKWebView(frame: .zero, configuration: config)
+        wv.isOpaque = false
+        wv.backgroundColor = .clear
+        wv.scrollView.minimumZoomScale = 0.5
+        wv.scrollView.maximumZoomScale = 3.0
+        self.webView = wv
+        return wv
+    }
+
+    // MARK: - HTML
 
     private func buildHTML(musicxml: String) -> String {
         let escaped = musicxml
@@ -69,19 +70,30 @@ public final class QXSheetMusicRenderer: NSObject, QXScoreProtocol {
     }
 }
 
-// MARK: - SwiftUI Wrapper
+// MARK: - UIKit Wrapper View
 
-public struct QXSheetMusicView: UIViewRepresentable {
+public final class QXSheetMusicView: UIView {
     public let renderer: QXSheetMusicRenderer
+    private var webView: WKWebView?
 
     public init(renderer: QXSheetMusicRenderer) {
         self.renderer = renderer
+        super.init(frame: .zero)
+        let wv = renderer.makeWebView()
+        wv.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(wv)
+        NSLayoutConstraint.activate([
+            wv.topAnchor.constraint(equalTo: topAnchor),
+            wv.bottomAnchor.constraint(equalTo: bottomAnchor),
+            wv.leadingAnchor.constraint(equalTo: leadingAnchor),
+            wv.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+        self.webView = wv
     }
 
-    public func makeUIView(context: Context) -> WKWebView {
-        renderer.makeWebView()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    public func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
 
 // MARK: - LXProtocol 模块注册

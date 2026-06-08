@@ -1,20 +1,25 @@
 //
-//  QXMainTabView.swift
+//  QXMainTabController.swift
 //  QXMusicApp
 //
 
-import SwiftUI
-import QXMusicInterface
+import UIKit
 
-struct QXMainTabView: View {
-    var body: some View {
-        TabView {
-            QXLibraryPage()
-                .tabItem { Label("乐谱库", systemImage: "music.note.list") }
-            QXScanPage()
-                .tabItem { Label("拍照识别", systemImage: "camera.viewfinder") }
-            QXProfilePage()
-                .tabItem { Label("我的", systemImage: "person.circle") }
-        }
+/// 主 Tab 控制器
+final class QXMainTabController: UITabBarController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let library = UINavigationController(rootViewController: QXLibraryViewController())
+        library.tabBarItem = UITabBarItem(title: "乐谱库", image: UIImage(systemName: "music.note.list"), tag: 0)
+
+        let scan = UINavigationController(rootViewController: QXScanViewController())
+        scan.tabBarItem = UITabBarItem(title: "拍照识别", image: UIImage(systemName: "camera.viewfinder"), tag: 1)
+
+        let profile = UINavigationController(rootViewController: QXProfileViewController())
+        profile.tabBarItem = UITabBarItem(title: "我的", image: UIImage(systemName: "person.circle"), tag: 2)
+
+        viewControllers = [library, scan, profile]
     }
 }
