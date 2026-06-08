@@ -35,7 +35,7 @@ def run_audiveris(image_path: str, task_id: str) -> Path:
     os.makedirs(output_dir, exist_ok=True)
 
     cmd = [
-        "audiveris",
+        settings.AUDIVERIS_BIN,
         "-batch",              # 批处理模式（无 GUI）
         "-export",             # 自动导出 MusicXML
         "-output", str(output_dir),

@@ -28,6 +28,10 @@ class Settings:
     DEFAULT_SOUNDFONT: Path = SOUNDFONT_DIR / "default.sf2"
 
     # OMR
+    AUDIVERIS_BIN: str = os.getenv(
+        "AUDIVERIS_BIN",
+        "/Applications/Audiveris.app/Contents/MacOS/Audiveris"
+    )
     AUDIVERIS_TIMEOUT: int = 300  # 秒
     TASK_TIMEOUT: int = 600       # 秒
 
