@@ -12,9 +12,9 @@ server/data/soundfonts/*.sf2
 !server/data/soundfonts/.gitkeep
 
 # iOS
-ios/*/DerivedData/
-ios/*/*.xcworkspace
-ios/*/Pods/
+ios/DerivedData/
+ios/Pods/
+ios/*.xcworkspace
 *.xcuserdata
 
 # IDE
