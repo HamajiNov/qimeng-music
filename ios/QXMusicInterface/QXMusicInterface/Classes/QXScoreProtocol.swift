@@ -19,7 +19,7 @@ public protocol QXScoreProtocol: LXAnnotationProtocol {
 }
 
 /// 乐谱数据模型（跨模块共享）
-public struct QXScoreItem: Codable, Hashable, Identifiable {
+public struct QXScoreItem: Codable, Equatable {
     public let id: String
     public var title: String
     public var artist: String
