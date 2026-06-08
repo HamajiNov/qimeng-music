@@ -1,11 +1,12 @@
 platform :ios, '18.0'
 
-# ─── LX 基础组件（从独立仓库拉取）───
-pod 'LXProtocol',    :git => 'https://github.com/HamajiNov/lxprotocol.git'
-pod 'LXAnnotation',  :git => 'https://github.com/HamajiNov/lxannotation.git'
-pod 'LXFoundation',  :git => 'https://github.com/HamajiNov/lxfoundation.git'
-pod 'LXHTTPAPI',     :git => 'https://github.com/HamajiNov/lxhttpapi.git'
-pod 'LXStore',       :git => 'https://github.com/HamajiNov/lxstore.git'
+# ─── 开发阶段：LX 基础组件本地引用 ───
+#   ⚠️ 发布后改为 :git => 'https://github.com/HamajiNov/...' + :tag => 'x.y.z'
+pod 'LXProtocol',    :path => '/Users/jzs/Documents/lx-trunk/LXProtocol'
+pod 'LXAnnotation',  :path => '/Users/jzs/Documents/lx-trunk/LXAnnotation'
+pod 'LXFoundation',  :path => '/Users/jzs/Documents/lx-trunk/LXFoundation'
+pod 'LXHTTPAPI',     :path => '/Users/jzs/Documents/lx-trunk/LXHTTPAPI'
+pod 'LXStore',       :path => '/Users/jzs/Documents/lx-trunk/LXStore'
 
 # ─── QX 启蒙乐谱组件（本地开发 Pod）───
 pod 'QXMusicInterface',  :path => './QXMusicInterface'
