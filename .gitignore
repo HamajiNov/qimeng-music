@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.env
+
+# Server data
+server/data/input/*
+server/data/output/*
+server/data/soundfonts/*.sf2
+!server/data/soundfonts/.gitkeep
+
+# iOS
+ios/*/DerivedData/
+ios/*/*.xcworkspace
+ios/*/Pods/
+*.xcuserdata
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
