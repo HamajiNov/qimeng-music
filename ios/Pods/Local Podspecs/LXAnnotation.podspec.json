@@ -1,0 +1,30 @@
+{
+  "name": "LXAnnotation",
+  "version": "0.0.1",
+  "summary": "LX 服务注册中心 - 协议驱动的依赖注入",
+  "description": "基于协议类型的服务注册/发现中心。支持 Swift 和 ObjC，通过协议名字符串作为 key 实现完全解耦。",
+  "homepage": "https://github.com/HamajiNov/lxannotation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/lxannotation.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "LXAnnotation/Classes/**/*",
+  "dependencies": {
+    "LXProtocol": []
+  },
+  "swift_version": "5.0"
+}

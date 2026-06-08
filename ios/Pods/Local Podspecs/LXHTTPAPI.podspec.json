@@ -1,0 +1,30 @@
+{
+  "name": "LXHTTPAPI",
+  "version": "0.0.1",
+  "summary": "LX HTTP API 抽象层",
+  "description": "基于 Moya 的 HTTP API 抽象层，提供 Provider 配置、插件管理和响应处理。",
+  "homepage": "https://github.com/HamajiNov/lxhttpapi",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/lxhttpapi.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "LXHTTPAPI/Classes/**/*",
+  "dependencies": {
+    "Moya": []
+  },
+  "swift_version": "5.0"
+}

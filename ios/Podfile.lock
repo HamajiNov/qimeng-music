@@ -1,0 +1,96 @@
+PODS:
+  - Alamofire (5.11.2)
+  - AnyCodable (1.2.0)
+  - LXAnnotation (0.0.1):
+    - LXProtocol
+  - LXFoundation (0.0.1)
+  - LXHTTPAPI (0.0.1):
+    - Moya
+  - LXProtocol (0.0.1)
+  - LXStore (0.0.1):
+    - AnyCodable
+    - LXFoundation
+    - Moya
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - QXMusicInterface (0.0.1):
+    - LXAnnotation
+  - QXMusicStore (0.0.1):
+    - LXAnnotation
+    - LXProtocol
+    - QXMusicInterface
+  - QXPlayerKit (0.0.1):
+    - LXAnnotation
+    - LXProtocol
+    - QXMusicInterface
+    - QXMusicStore
+  - QXScanKit (0.0.1):
+    - LXAnnotation
+    - LXProtocol
+    - QXMusicInterface
+    - QXMusicStore
+  - QXScoreKit (0.0.1):
+    - LXAnnotation
+    - LXProtocol
+    - QXMusicInterface
+
+DEPENDENCIES:
+  - LXAnnotation (from `/Users/jzs/Documents/lx-trunk/LXAnnotation`)
+  - LXFoundation (from `/Users/jzs/Documents/lx-trunk/LXFoundation`)
+  - LXHTTPAPI (from `/Users/jzs/Documents/lx-trunk/LXHTTPAPI`)
+  - LXProtocol (from `/Users/jzs/Documents/lx-trunk/LXProtocol`)
+  - LXStore (from `/Users/jzs/Documents/lx-trunk/LXStore`)
+  - QXMusicInterface (from `./QXMusicInterface`)
+  - QXMusicStore (from `./QXMusicStore`)
+  - QXPlayerKit (from `./QXPlayerKit`)
+  - QXScanKit (from `./QXScanKit`)
+  - QXScoreKit (from `./QXScoreKit`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AnyCodable
+    - Moya
+
+EXTERNAL SOURCES:
+  LXAnnotation:
+    :path: "/Users/jzs/Documents/lx-trunk/LXAnnotation"
+  LXFoundation:
+    :path: "/Users/jzs/Documents/lx-trunk/LXFoundation"
+  LXHTTPAPI:
+    :path: "/Users/jzs/Documents/lx-trunk/LXHTTPAPI"
+  LXProtocol:
+    :path: "/Users/jzs/Documents/lx-trunk/LXProtocol"
+  LXStore:
+    :path: "/Users/jzs/Documents/lx-trunk/LXStore"
+  QXMusicInterface:
+    :path: "./QXMusicInterface"
+  QXMusicStore:
+    :path: "./QXMusicStore"
+  QXPlayerKit:
+    :path: "./QXPlayerKit"
+  QXScanKit:
+    :path: "./QXScanKit"
+  QXScoreKit:
+    :path: "./QXScoreKit"
+
+SPEC CHECKSUMS:
+  Alamofire: 400275dd1c6d87d95a041861d2a59da4b520a203
+  AnyCodable: bb05e19c676899e0fd511652f2d83bfa044e2503
+  LXAnnotation: 378a9b5ede2b7ac3e97f04f5e59c9a678ed0b221
+  LXFoundation: c4bfbe9b296e5553a53488e788d5dee943adb018
+  LXHTTPAPI: ea64f1316d3ce6b775835a619a630fa607dde035
+  LXProtocol: a122c8de4fc32281f88a0209acdf0961c19ef90b
+  LXStore: db2cb6fa547f5f13c8058116903eea475008c004
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  QXMusicInterface: 113720b5c063d53b3a113f3ed27ed9f182dc883d
+  QXMusicStore: 05809c7ea61b63227d967f2908697626e2600e4d
+  QXPlayerKit: db591adfb639eab4b03ccd419b3b58677ae687c2
+  QXScanKit: ec862753cb2109161b3a37da8b5c9ca1d61ab32a
+  QXScoreKit: 87e89ce3eabff7d9ae66dff5a7f885ee5be98eee
+
+PODFILE CHECKSUM: 256bac195eb11dcbc205dcbd0a99c5fc4214270f
+
+COCOAPODS: 1.16.2

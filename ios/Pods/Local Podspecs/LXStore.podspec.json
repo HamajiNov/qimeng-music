@@ -1,0 +1,32 @@
+{
+  "name": "LXStore",
+  "version": "0.0.1",
+  "summary": "LX 数据模型与存储基础",
+  "description": "提供 LXError、LXOSS、LXCloudResponse、LXTargetType、LXLogger、GCDTimer 等核心数据模型和工具。",
+  "homepage": "https://github.com/HamajiNov/lxstore",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/lxstore.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "LXStore/Classes/**/*",
+  "dependencies": {
+    "LXFoundation": [],
+    "Moya": [],
+    "AnyCodable": []
+  },
+  "swift_version": "5.0"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "LXFoundation",
+  "version": "0.0.1",
+  "summary": "LX 基础工具库",
+  "description": "提供 LXCodable 协议、Codable JSON 解析扩展、Collection Safe 防越界、颜色/字符串/设备工具扩展、UserDefaults 封装、URL 处理器。",
+  "homepage": "https://github.com/HamajiNov/lxfoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/lxfoundation.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "LXFoundation/Classes/**/*",
+  "swift_version": "5.0"
+}

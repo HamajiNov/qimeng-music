@@ -1,0 +1,6 @@
+framework module QXScoreKit {
+  umbrella header "QXScoreKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

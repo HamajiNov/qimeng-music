@@ -1,0 +1,29 @@
+{
+  "name": "QXMusicInterface",
+  "version": "0.0.1",
+  "summary": "启蒙乐谱 — 纯协议定义层，零实现代码",
+  "description": "定义 QXScoreProtocol、QXPlayerProtocol、QXScanProtocol、QXStorageProtocol。所有协议继承 LXAnnotationProtocol，通过 LXAnnotation 注册/发现。",
+  "homepage": "https://github.com/HamajiNov/qimeng-music",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/qimeng-music.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "18.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "QXMusicInterface/Classes/**/*",
+  "dependencies": {
+    "LXAnnotation": []
+  },
+  "swift_version": "5.0"
+}

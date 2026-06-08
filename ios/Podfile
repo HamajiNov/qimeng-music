@@ -1,17 +1,23 @@
 platform :ios, '18.0'
+project 'QXMusic.xcodeproj'
 
-# ─── 开发阶段：LX 基础组件本地引用 ───
-#   ⚠️ 发布后改为 :git => 'https://github.com/HamajiNov/...' + :tag => 'x.y.z'
-pod 'LXProtocol',    :path => '/Users/jzs/Documents/lx-trunk/LXProtocol'
-pod 'LXAnnotation',  :path => '/Users/jzs/Documents/lx-trunk/LXAnnotation'
-pod 'LXFoundation',  :path => '/Users/jzs/Documents/lx-trunk/LXFoundation'
-pod 'LXHTTPAPI',     :path => '/Users/jzs/Documents/lx-trunk/LXHTTPAPI'
-pod 'LXStore',       :path => '/Users/jzs/Documents/lx-trunk/LXStore'
+target 'QXMusic' do
+  use_frameworks!
 
-# ─── QX 启蒙乐谱组件（本地开发 Pod）───
-pod 'QXMusicInterface',  :path => './QXMusicInterface'
-pod 'QXMusicStore',      :path => './QXMusicStore'
-pod 'QXScoreKit',        :path => './QXScoreKit'
-pod 'QXPlayerKit',       :path => './QXPlayerKit'
-pod 'QXScanKit',         :path => './QXScanKit'
-pod 'QXMusicApp',        :path => './QXMusicApp'
+  # ─── LX 基础组件 ───
+  pod 'LXProtocol',    :path => '/Users/jzs/Documents/lx-trunk/LXProtocol'
+  pod 'LXAnnotation',  :path => '/Users/jzs/Documents/lx-trunk/LXAnnotation'
+  pod 'LXFoundation',  :path => '/Users/jzs/Documents/lx-trunk/LXFoundation'
+  pod 'LXHTTPAPI',     :path => '/Users/jzs/Documents/lx-trunk/LXHTTPAPI'
+  pod 'LXStore',       :path => '/Users/jzs/Documents/lx-trunk/LXStore'
+
+  # ─── QX 启蒙乐谱业务组件 ───
+  pod 'QXMusicInterface',  :path => './QXMusicInterface'
+  pod 'QXMusicStore',      :path => './QXMusicStore'
+  pod 'QXScoreKit',        :path => './QXScoreKit'
+  pod 'QXPlayerKit',       :path => './QXPlayerKit'
+  pod 'QXScanKit',         :path => './QXScanKit'
+
+  # ⚠️ QXMusicApp 不作为 Pod 安装 — 它是主 target 本身
+  #    QXMusicApp.podspec 仅用于文档记录依赖关系
+end

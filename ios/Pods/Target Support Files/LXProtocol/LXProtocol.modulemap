@@ -1,0 +1,6 @@
+framework module LXProtocol {
+  umbrella header "LXProtocol-umbrella.h"
+
+  export *
+  module * { export * }
+}

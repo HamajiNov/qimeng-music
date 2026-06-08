@@ -1,0 +1,6 @@
+framework module LXAnnotation {
+  umbrella header "LXAnnotation-umbrella.h"
+
+  export *
+  module * { export * }
+}

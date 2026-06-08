@@ -1,0 +1,6 @@
+framework module QXScanKit {
+  umbrella header "QXScanKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

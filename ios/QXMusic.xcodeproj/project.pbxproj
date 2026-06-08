@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		142D36810976835B2E5A7255 /* QXMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E09B62224611D8E98C13BC /* QXMusicApp.swift */; };
+		17036AB46F9700EC9979E7F7 /* QXLibraryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBC33B9C1F73B17EDB5613 /* QXLibraryPage.swift */; };
+		2BDE70C5D87D6E2F57C6F2D8 /* Pods_QXMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10D047D8E9B7AAB48733833 /* Pods_QXMusic.framework */; };
+		39F3CD54FFB1D03C3337188B /* QXMainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B49F7F63BE9D84866ABC31 /* QXMainTabView.swift */; };
+		3D2FBDCD8191C62CD4520AF1 /* QXProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F69B402BC8C375C9D66242B /* QXProfilePage.swift */; };
+		8AD75C2204FB721CE3E403AA /* QXScoreDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63330621109DFEBD02E65222 /* QXScoreDetailPage.swift */; };
+		F5B55E51D4F5D68AA01D623D /* QXScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC611B874437F910A2907F /* QXScanPage.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		12B49F7F63BE9D84866ABC31 /* QXMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXMainTabView.swift; sourceTree = "<group>"; };
+		18E09B62224611D8E98C13BC /* QXMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXMusicApp.swift; sourceTree = "<group>"; };
+		1F69B402BC8C375C9D66242B /* QXProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXProfilePage.swift; sourceTree = "<group>"; };
+		33C4048272EF03546E4F4A23 /* QXMusic.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = QXMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53AC611B874437F910A2907F /* QXScanPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXScanPage.swift; sourceTree = "<group>"; };
+		63330621109DFEBD02E65222 /* QXScoreDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXScoreDetailPage.swift; sourceTree = "<group>"; };
+		883EA8C36943530C2361934C /* Pods-QXMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QXMusic.release.xcconfig"; path = "Target Support Files/Pods-QXMusic/Pods-QXMusic.release.xcconfig"; sourceTree = "<group>"; };
+		A10D047D8E9B7AAB48733833 /* Pods_QXMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QXMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EA25D4A4EACACC1C03F90E /* Pods-QXMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QXMusic.debug.xcconfig"; path = "Target Support Files/Pods-QXMusic/Pods-QXMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		C3CBC33B9C1F73B17EDB5613 /* QXLibraryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QXLibraryPage.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5486C2EA0DA5E1F48B9F0E10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BDE70C5D87D6E2F57C6F2D8 /* Pods_QXMusic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0261BCC830BCDD49638879EC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C3CBC33B9C1F73B17EDB5613 /* QXLibraryPage.swift */,
+				12B49F7F63BE9D84866ABC31 /* QXMainTabView.swift */,
+				18E09B62224611D8E98C13BC /* QXMusicApp.swift */,
+				1F69B402BC8C375C9D66242B /* QXProfilePage.swift */,
+				53AC611B874437F910A2907F /* QXScanPage.swift */,
+				63330621109DFEBD02E65222 /* QXScoreDetailPage.swift */,
+			);
+			name = Classes;
+			path = QXMusicApp/QXMusicApp/Classes;
+			sourceTree = "<group>";
+		};
+		176717BB4464E6E2BC6BC9EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A10D047D8E9B7AAB48733833 /* Pods_QXMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C22ABC60FF468CC6B2181B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33C4048272EF03546E4F4A23 /* QXMusic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B747A7A4B769B71F493EF036 = {
+			isa = PBXGroup;
+			children = (
+				0261BCC830BCDD49638879EC /* Classes */,
+				7C22ABC60FF468CC6B2181B2 /* Products */,
+				D527967C88427D7183D47EB1 /* Pods */,
+				176717BB4464E6E2BC6BC9EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D527967C88427D7183D47EB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1EA25D4A4EACACC1C03F90E /* Pods-QXMusic.debug.xcconfig */,
+				883EA8C36943530C2361934C /* Pods-QXMusic.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCE722E98A43122A4C2CDC53 /* QXMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 866B834F714FCADAE1A41763 /* Build configuration list for PBXNativeTarget "QXMusic" */;
+			buildPhases = (
+				515A5B64ED4155EFC9561F1D /* [CP] Check Pods Manifest.lock */,
+				AF7ABB3521E0610310397327 /* Sources */,
+				5486C2EA0DA5E1F48B9F0E10 /* Frameworks */,
+				FE6B522A5F5359D0D6505EAD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QXMusic;
+			productName = QXMusic;
+			productReference = 33C4048272EF03546E4F4A23 /* QXMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93F239EC06D3B038729335C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 6F736C8E1F13F6F9C3A2E20D /* Build configuration list for PBXProject "QXMusic" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B747A7A4B769B71F493EF036;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7C22ABC60FF468CC6B2181B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCE722E98A43122A4C2CDC53 /* QXMusic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		515A5B64ED4155EFC9561F1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QXMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE6B522A5F5359D0D6505EAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QXMusic/Pods-QXMusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QXMusic/Pods-QXMusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QXMusic/Pods-QXMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF7ABB3521E0610310397327 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17036AB46F9700EC9979E7F7 /* QXLibraryPage.swift in Sources */,
+				39F3CD54FFB1D03C3337188B /* QXMainTabView.swift in Sources */,
+				142D36810976835B2E5A7255 /* QXMusicApp.swift in Sources */,
+				3D2FBDCD8191C62CD4520AF1 /* QXProfilePage.swift in Sources */,
+				F5B55E51D4F5D68AA01D623D /* QXScanPage.swift in Sources */,
+				8AD75C2204FB721CE3E403AA /* QXScoreDetailPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0589D2411302F0DB56575005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2E4EF1A365D1FD0641747DEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		87B986013653EBDE66A6ED91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1EA25D4A4EACACC1C03F90E /* Pods-QXMusic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QXMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamajinov.qxmusic;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC1E652BEA001BDE2ACF807B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 883EA8C36943530C2361934C /* Pods-QXMusic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QXMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamajinov.qxmusic;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F736C8E1F13F6F9C3A2E20D /* Build configuration list for PBXProject "QXMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E4EF1A365D1FD0641747DEF /* Debug */,
+				0589D2411302F0DB56575005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		866B834F714FCADAE1A41763 /* Build configuration list for PBXNativeTarget "QXMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87B986013653EBDE66A6ED91 /* Debug */,
+				AC1E652BEA001BDE2ACF807B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93F239EC06D3B038729335C3 /* Project object */;
+}

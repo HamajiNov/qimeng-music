@@ -1,0 +1,6 @@
+framework module LXStore {
+  umbrella header "LXStore-umbrella.h"
+
+  export *
+  module * { export * }
+}

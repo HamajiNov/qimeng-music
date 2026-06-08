@@ -1,0 +1,6 @@
+framework module LXHTTPAPI {
+  umbrella header "LXHTTPAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

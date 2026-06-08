@@ -1,0 +1,31 @@
+{
+  "name": "QXMusicStore",
+  "version": "0.0.1",
+  "summary": "启蒙乐谱 — 数据持久化层",
+  "description": "实现 QXStorageProtocol，提供乐谱本地缓存管理、API 客户端。",
+  "homepage": "https://github.com/HamajiNov/qimeng-music",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/qimeng-music.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "18.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "QXMusicStore/Classes/**/*",
+  "dependencies": {
+    "LXProtocol": [],
+    "LXAnnotation": [],
+    "QXMusicInterface": []
+  },
+  "swift_version": "5.0"
+}

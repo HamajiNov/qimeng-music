@@ -1,0 +1,6 @@
+framework module QXMusicStore {
+  umbrella header "QXMusicStore-umbrella.h"
+
+  export *
+  module * { export * }
+}

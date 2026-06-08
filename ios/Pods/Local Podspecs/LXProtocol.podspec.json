@@ -1,0 +1,27 @@
+{
+  "name": "LXProtocol",
+  "version": "0.0.1",
+  "summary": "LX 基础协议 - 组件化启动自发现引擎",
+  "description": "定义 LXProtocol 协议，通过 objc_copyClassList 运行时自动发现并加载所有遵循协议的类，按优先级排序初始化。",
+  "homepage": "https://github.com/HamajiNov/lxprotocol",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "LX": "lx@mail.com"
+  },
+  "source": {
+    "git": "https://github.com/HamajiNov/lxprotocol.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "13.0",
+    "osx": "11.0"
+  },
+  "swift_versions": [
+    "5.0"
+  ],
+  "source_files": "LXProtocol/Classes/**/*",
+  "swift_version": "5.0"
+}

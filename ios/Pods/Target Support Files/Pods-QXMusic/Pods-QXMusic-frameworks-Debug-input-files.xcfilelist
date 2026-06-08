@@ -1,0 +1,14 @@
+${PODS_ROOT}/Target Support Files/Pods-QXMusic/Pods-QXMusic-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/AnyCodable/AnyCodable.framework
+${BUILT_PRODUCTS_DIR}/LXAnnotation/LXAnnotation.framework
+${BUILT_PRODUCTS_DIR}/LXFoundation/LXFoundation.framework
+${BUILT_PRODUCTS_DIR}/LXHTTPAPI/LXHTTPAPI.framework
+${BUILT_PRODUCTS_DIR}/LXProtocol/LXProtocol.framework
+${BUILT_PRODUCTS_DIR}/LXStore/LXStore.framework
+${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/QXMusicInterface/QXMusicInterface.framework
+${BUILT_PRODUCTS_DIR}/QXMusicStore/QXMusicStore.framework
+${BUILT_PRODUCTS_DIR}/QXPlayerKit/QXPlayerKit.framework
+${BUILT_PRODUCTS_DIR}/QXScanKit/QXScanKit.framework
+${BUILT_PRODUCTS_DIR}/QXScoreKit/QXScoreKit.framework
