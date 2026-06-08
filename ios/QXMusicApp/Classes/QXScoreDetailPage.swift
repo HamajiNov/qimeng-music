@@ -6,8 +6,8 @@
 import SwiftUI
 import LXAnnotation
 import QXMusicInterface
-import QXScoreKit
-import QXPlayerKit
+import QXMusicStore    // QXScoreLibraryManager 文件路径
+import QXScoreKit    // QXSheetMusicView / QXSheetMusicRenderer 具体类型
 
 struct QXScoreDetailPage: View {
     let score: QXScoreItem

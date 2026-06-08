@@ -7,6 +7,7 @@ import AVFoundation
 import LXProtocol
 import LXAnnotation
 import QXMusicInterface
+import QXMusicStore
 
 /// KTV 播放器 — 实现 QXPlayerProtocol
 @MainActor

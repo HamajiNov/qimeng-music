@@ -7,6 +7,7 @@ import Foundation
 import LXProtocol
 import LXAnnotation
 import QXMusicInterface
+import QXMusicStore
 
 /// 扫描识别管理器 — 实现 QXScanProtocol
 @MainActor
