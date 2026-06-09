@@ -9,7 +9,7 @@ import LXAnnotation
 import QXMusicInterface
 
 /// API 客户端 — 封装与服务端的 HTTP 通信
-public final class QXAPIClient {
+public final class QXAPIClient: QXRecognitionAPIProtocol {
     public static let shared = QXAPIClient()
 
     private var baseURL: String {
@@ -48,9 +48,11 @@ public final class QXAPIClient {
             let result: QXRecognizeResult?
             let error: String?
         }
-        let json = try JSONDecoder().decode(TaskJSON.self, from: data)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let json = try decoder.decode(TaskJSON.self, from: data)
 
-        if json.status == "failed" { throw APIError.serverError(json.error ?? "识别失败") }
+        if json.status == "failed" { throw QXAPIError.serverError(json.error ?? "识别失败") }
         return (json.status, json.result)
     }
 
@@ -76,7 +78,7 @@ public final class QXAPIClient {
     private func perform(_ request: URLRequest) async throws -> Data {
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
-            throw APIError.serverError("请求失败")
+            throw QXAPIError.serverError("请求失败")
         }
         return data
     }
@@ -89,16 +91,5 @@ public final class QXAPIClient {
         body.append(data)
         body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
         return body
-    }
-}
-
-public enum APIError: Error, LocalizedError {
-    case serverError(String)
-    case timeout
-    public var errorDescription: String? {
-        switch self {
-        case .serverError(let msg): return msg
-        case .timeout: return "请求超时"
-        }
     }
 }

@@ -4,10 +4,13 @@
 //
 
 import Foundation
+import UIKit
 import LXAnnotation
 
 /// 乐谱渲染协议 — 由 QXScoreKit 实现
 public protocol QXScoreProtocol: LXAnnotationProtocol {
+    /// 创建乐谱渲染视图
+    func makeScoreView() -> UIView
     /// 加载并渲染 MusicXML
     func loadMusicXML(url: URL)
     /// 跳转到指定时间（秒）

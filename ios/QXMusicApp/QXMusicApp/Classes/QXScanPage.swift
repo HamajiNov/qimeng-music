@@ -144,10 +144,14 @@ final class QXScanViewController: UIViewController {
 
         switch scanState {
         case .idle:
-            idleStack.isHidden = false
-            if let err = errorMessage, !err.isEmpty {
-                errorLabel.text = err; errorLabel.isHidden = false
-            } else { errorLabel.isHidden = true }
+            if selectedImage == nil {
+                idleStack.isHidden = false
+                errorLabel.isHidden = true
+            } else {
+                previewStack.isHidden = false
+                errorLabel.text = errorMessage
+                errorLabel.isHidden = errorMessage?.isEmpty ?? true
+            }
 
         case .uploading, .waiting, .downloading:
             progressStack.isHidden = false

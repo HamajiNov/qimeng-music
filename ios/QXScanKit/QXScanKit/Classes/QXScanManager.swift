@@ -7,18 +7,27 @@ import Foundation
 import LXProtocol
 import LXAnnotation
 import QXMusicInterface
-import QXMusicStore
 
 /// 扫描识别管理器 — 实现 QXScanProtocol
-final class QXScanManager: ObservableObject, QXScanProtocol {
-    @Published var state: QXScanState = .idle
-    @Published var progress: Double = 0
+final class QXScanManager: QXScanProtocol {
+    var state: QXScanState = .idle
+    var progress: Double = 0
     public var onStateChanged: (() -> Void)?
 
     public func recognize(imageData: Data) async throws -> QXRecognizeResult {
+        guard let storage = LXAnnotation.getInstance(
+            forProtocolType: QXStorageProtocol.self
+        ) as? QXStorageProtocol else {
+            throw QXAPIError.serverError("本地存储服务未注册")
+        }
+        guard let client = LXAnnotation.getInstance(
+            forProtocolType: QXRecognitionAPIProtocol.self
+        ) as? QXRecognitionAPIProtocol else {
+            throw QXAPIError.serverError("远程识别服务未注册")
+        }
+
         state = .uploading; onStateChanged?()
 
-        let client = QXAPIClient.shared
         let (taskId, _) = try await client.uploadImage(imageData, filename: "score.jpg")
 
         state = .waiting(taskId: taskId); onStateChanged?()
@@ -29,12 +38,11 @@ final class QXScanManager: ObservableObject, QXScanProtocol {
 
             switch status {
             case "completed":
-                guard let result else { throw APIError.serverError("结果为空") }
+                guard let result else { throw QXAPIError.serverError("结果为空") }
                 state = .downloading; onStateChanged?()
 
                 // 下载文件
-                let store = await QXScoreLibraryManager.shared
-                let dir = try await store.prepareDirectory(for: taskId)
+                let dir = try storage.prepareDirectory(for: taskId)
                 if let musicxmlUrl = result.musicxmlUrl {
                     try await client.downloadFile(from: musicxmlUrl, to: dir.appendingPathComponent("score.musicxml"))
                 }
@@ -50,7 +58,7 @@ final class QXScanManager: ObservableObject, QXScanProtocol {
                     artist: result.artist ?? "未知作者",
                     createdAt: Date(), isCached: true
                 )
-                try await store.addScore(item)
+                try storage.addScore(item)
 
                 state = .completed(item); onStateChanged?()
                 return result
@@ -64,7 +72,7 @@ final class QXScanManager: ObservableObject, QXScanProtocol {
         }
 
         state = .failed("超时"); onStateChanged?()
-        throw APIError.timeout
+        throw QXAPIError.timeout
     }
 
     public func reset() { state = .idle; progress = 0; onStateChanged?() }

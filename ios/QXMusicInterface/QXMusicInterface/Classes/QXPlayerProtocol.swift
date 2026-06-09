@@ -33,8 +33,7 @@ public protocol QXPlayerProtocol: LXAnnotationProtocol, AnyObject {
 }
 
 /// LRC 歌词行
-public struct QXLRCLine: Identifiable, Sendable {
-    public let id = UUID()
+public struct QXLRCLine: Sendable {
     public let timestamp: TimeInterval
     public let text: String
 

@@ -25,12 +25,10 @@ PODS:
     - LXAnnotation
     - LXProtocol
     - QXMusicInterface
-    - QXMusicStore
   - QXScanKit (0.0.1):
     - LXAnnotation
     - LXProtocol
     - QXMusicInterface
-    - QXMusicStore
   - QXScoreKit (0.0.1):
     - LXAnnotation
     - LXProtocol
@@ -87,8 +85,8 @@ SPEC CHECKSUMS:
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   QXMusicInterface: 113720b5c063d53b3a113f3ed27ed9f182dc883d
   QXMusicStore: 05809c7ea61b63227d967f2908697626e2600e4d
-  QXPlayerKit: db591adfb639eab4b03ccd419b3b58677ae687c2
-  QXScanKit: ec862753cb2109161b3a37da8b5c9ca1d61ab32a
+  QXPlayerKit: 0aff703a915ce46e8ad0d67626654eee928ce942
+  QXScanKit: e389ec3ad0c5f8be9e799e53f2703ba0b3c68033
   QXScoreKit: 87e89ce3eabff7d9ae66dff5a7f885ee5be98eee
 
 PODFILE CHECKSUM: 256bac195eb11dcbc205dcbd0a99c5fc4214270f

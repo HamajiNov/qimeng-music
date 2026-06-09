@@ -15,6 +15,10 @@ public final class QXSheetMusicRenderer: NSObject, QXScoreProtocol {
     public var onPlaybackTimeChanged: ((TimeInterval) -> Void)?
     public var currentTime: TimeInterval = 0
 
+    public func makeScoreView() -> UIView {
+        QXSheetMusicView(renderer: self)
+    }
+
     public func loadMusicXML(url: URL) {
         let xml = (try? String(contentsOf: url, encoding: .utf8)) ?? ""
         let html = buildHTML(musicxml: xml)

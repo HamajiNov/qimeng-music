@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.dependency 'LXProtocol'
   s.dependency 'LXAnnotation'
   s.dependency 'QXMusicInterface'
-  s.dependency 'QXMusicStore'
 end

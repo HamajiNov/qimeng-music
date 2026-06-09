@@ -94,5 +94,9 @@ public final class QXScoreLibraryManager: QXStorageProtocol {
             instance: QXScoreLibraryManager.shared,
             forProtocolType: QXStorageProtocol.self
         )
+        LXAnnotation.register(
+            instance: QXAPIClient.shared,
+            forProtocolType: QXRecognitionAPIProtocol.self
+        )
     }
 }
