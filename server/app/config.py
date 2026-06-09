@@ -14,6 +14,10 @@ class Settings:
     VERSION: str = "1.0.0"
     DEBUG: bool = os.getenv("DEBUG", "false").lower() == "true"
 
+    # Base paths
+    BASE_DIR: Path = BASE_DIR
+    DATA_DIR: Path = DATA_DIR
+
     # Redis
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
